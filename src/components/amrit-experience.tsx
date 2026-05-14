@@ -798,6 +798,7 @@ function PremiumFooter() {
             <motion.a href="#" whileHover={{ x: 4, color: '#C8A85A' }} className="transition-colors duration-300">Business</motion.a>
           </div>
         </div>
+
         {/* POWERED BY */}
         <div className="mt-5 flex justify-end">
           <div className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-3 py-2 transition-all duration-300 hover:bg-white/10">
@@ -830,6 +831,8 @@ function PremiumFooter() {
             </a>
           </div>
         </div>
+=======
+
       </div>
     </footer>
   );
