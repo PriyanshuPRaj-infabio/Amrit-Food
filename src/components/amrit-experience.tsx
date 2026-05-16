@@ -165,17 +165,17 @@ const legacyScenes = [
     eyebrow: "Everyday Life",
     title: "Trust was never built through advertising. It was built through consistency people could rely on.",
     copy: "Morning tea, breakfast tables, cafe counters, restaurant kitchens, desserts after dinner - the brand became part of ordinary rituals that quietly mattered.",
-    image: "https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=1600&q=82",
+    image: "https://images.unsplash.com/photo-1593068654099-10ad31300e45?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     mood: "human",
-    layout: "full"
+    layout: "splitReverse"
   },
   {
     eyebrow: "Scale & Expansion",
     title: "Scaling food solutions for a rapidly evolving India.",
     copy: "As India changed, Amrit Food evolved from familiar dairy trust into a wider manufacturing backbone for institutions, food brands, cafes, and high-volume kitchens.",
-    image: "/brand/amrit-food-infrastructure.jpg",
+    image: "/brand/amrit-food-infrastructure.png",
     mood: "industrial",
-    layout: "splitReverse"
+    layout: "split"
   },
   {
     eyebrow: "Quiet Impact",
@@ -183,7 +183,7 @@ const legacyScenes = [
     copy: "Behind the meal served on time, the dessert finished with care, the cup made smoother, and the kitchen that keeps moving, there is a promise repeated without spectacle.",
     image: "/scale-02.jpg",
     mood: "emotional",
-    layout: "full"
+    layout: "splitReverse"
   },
   {
     eyebrow: "Future",
@@ -445,32 +445,6 @@ function ValueImpact() {
         </div>
         <p className="impact-copy max-w-2xl text-xl leading-9 text-ivory/68">Every pouch, cream, mix, and dairy solution becomes part of a larger chain of trust: families fed, kitchens prepared, cafes moving, partners growing, and an industry becoming more capable.</p>
       </div>
-
-      <div className="impact-field relative mx-auto mt-20 grid max-w-7xl gap-5 md:grid-cols-6 md:grid-rows-2">
-        {impact.map((item, index) => {
-          const Icon = item.icon;
-          const placement = ["md:col-span-2", "md:col-span-2", "md:col-span-2", "md:col-span-3", "md:col-span-3"][index];
-          return (
-            <motion.article
-              key={item.title}
-              whileHover={{ y: -16, scale: 1.025 }}
-              transition={{ type: "spring", stiffness: 200, damping: 16 }}
-              className={`impact-node group relative min-h-80 overflow-hidden rounded-[1.75rem] border border-ivory/14 bg-ivory/[0.075] p-7 backdrop-blur-xl transition-all duration-300 hover:border-gold/50 hover:bg-ivory/[0.12] hover:shadow-[0_28px_90px_rgba(200,168,90,0.2)] ${placement}`}
-            >
-              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gold/10 blur-2xl transition-all duration-500 group-hover:scale-150 group-hover:bg-gold/30" />
-              <motion.div
-                whileHover={{ rotate: 12 }}
-                transition={{ type: "spring", stiffness: 200 }}
-              >
-                <Icon className="h-9 w-9 text-gold transition-transform duration-300 group-hover:scale-125" />
-              </motion.div>
-              <h3 className="mt-20 font-display text-4xl leading-none transition-colors duration-300 group-hover:text-gold">{item.title}</h3>
-              <p className="mt-5 max-w-sm leading-7 text-ivory/66 transition-colors duration-300 group-hover:text-ivory/85">{item.copy}</p>
-              <div className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-gradient-to-r from-gold/0 via-gold to-gold/0 transition-transform duration-500 group-hover:scale-x-100" />
-            </motion.article>
-          );
-        })}
-      </div>
     </section>
   );
 }
@@ -675,30 +649,6 @@ function FutureInnovation() {
         <Reveal delay={0.12}>
           <p className="text-xl leading-9 text-ink/66">Future readiness is not only technology. It is the ability to translate insight into consistent food systems at scale, with quality that earns confidence before a product ever reaches the table.</p>
         </Reveal>
-      </div>
-      <div className="future-grid relative mx-auto mt-20 grid max-w-7xl gap-5 lg:grid-cols-3">
-        {innovations.map((item) => {
-          const Icon = item.icon;
-          return (
-            <motion.article
-              key={item.title}
-              whileHover={{ y: -16, scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 200, damping: 16 }}
-              className="future-card group relative min-h-96 overflow-hidden rounded-[1.75rem] border border-ink/10 bg-ivory/72 p-8 shadow-cinematic backdrop-blur transition-all duration-300 hover:border-royal/40 hover:bg-ivory/90 hover:shadow-[0_28px_90px_rgba(30,58,138,0.2)]"
-            >
-              <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-royal/12 blur-3xl transition-all duration-500 group-hover:scale-150 group-hover:bg-royal/25" />
-              <motion.div
-                whileHover={{ rotate: -12 }}
-                transition={{ type: "spring", stiffness: 200 }}
-              >
-                <Icon className="h-10 w-10 text-royal transition-transform duration-300 group-hover:scale-125" />
-              </motion.div>
-              <h3 className="mt-20 font-display text-4xl leading-none text-navy transition-colors duration-300 group-hover:text-royal">{item.title}</h3>
-              <p className="mt-5 text-lg leading-8 text-ink/68 transition-colors duration-300 group-hover:text-ink/85">{item.copy}</p>
-              <div className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-gradient-to-r from-royal/0 via-royal to-royal/0 transition-transform duration-500 group-hover:scale-x-100" />
-            </motion.article>
-          );
-        })}
       </div>
     </section>
   );
