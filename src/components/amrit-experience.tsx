@@ -13,7 +13,7 @@ import { impact, innovations, navItems, process, products, stats } from "@/data/
 
 gsap.registerPlugin(ScrollTrigger);
 
-const heroImage = "https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=1800&q=82";
+const heroImage = "https://images.unsplash.com/photo-1637382752225-d7f97e1ddd03?q=80&w=1533&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
 export function AmritExperience() {
   return (
@@ -371,9 +371,9 @@ function ProductEcosystem() {
             <div className="relative z-10 mt-5">
               <div className="flex items-center justify-between gap-4">
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-sage transition-colors duration-300 group-hover:text-gold">{product.size}</p>
-                <motion.span 
+                <motion.span
                   whileHover={{ scale: 1.1 }}
-                  className="rounded-full px-3 py-1 text-xs font-bold text-navy transition-all duration-300" 
+                  className="rounded-full px-3 py-1 text-xs font-bold text-navy transition-all duration-300"
                   style={{ backgroundColor: `${product.accent}33` }}
                 >
                   {product.price}
@@ -458,7 +458,7 @@ function ValueImpact() {
               className={`impact-node group relative min-h-80 overflow-hidden rounded-[1.75rem] border border-ivory/14 bg-ivory/[0.075] p-7 backdrop-blur-xl transition-all duration-300 hover:border-gold/50 hover:bg-ivory/[0.12] hover:shadow-[0_28px_90px_rgba(200,168,90,0.2)] ${placement}`}
             >
               <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gold/10 blur-2xl transition-all duration-500 group-hover:scale-150 group-hover:bg-gold/30" />
-              <motion.div 
+              <motion.div
                 whileHover={{ rotate: 12 }}
                 transition={{ type: "spring", stiffness: 200 }}
               >
@@ -680,14 +680,14 @@ function FutureInnovation() {
         {innovations.map((item) => {
           const Icon = item.icon;
           return (
-            <motion.article 
-              key={item.title} 
+            <motion.article
+              key={item.title}
               whileHover={{ y: -16, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 200, damping: 16 }}
               className="future-card group relative min-h-96 overflow-hidden rounded-[1.75rem] border border-ink/10 bg-ivory/72 p-8 shadow-cinematic backdrop-blur transition-all duration-300 hover:border-royal/40 hover:bg-ivory/90 hover:shadow-[0_28px_90px_rgba(30,58,138,0.2)]"
             >
               <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-royal/12 blur-3xl transition-all duration-500 group-hover:scale-150 group-hover:bg-royal/25" />
-              <motion.div 
+              <motion.div
                 whileHover={{ rotate: -12 }}
                 transition={{ type: "spring", stiffness: 200 }}
               >
@@ -769,9 +769,9 @@ function PremiumFooter() {
             <p className="text-sm font-bold uppercase tracking-[0.28em] text-gold">Navigate</p>
             <div className="mt-6 grid gap-3 text-ivory/68">
               {navItems.map((item) => (
-                <motion.a 
-                  key={item} 
-                  href={`#${item.toLowerCase()}`} 
+                <motion.a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
                   whileHover={{ x: 4, color: '#C8A85A' }}
                   transition={{ type: "spring", stiffness: 200 }}
                   className="transition-colors duration-300"
@@ -831,7 +831,6 @@ function PremiumFooter() {
             </a>
           </div>
         </div>
-=======
 
       </div>
     </footer>
