@@ -2,109 +2,131 @@ import { BadgeCheck, Building2, Factory, FlaskConical, HeartHandshake, Landmark,
 
 export const navItems = ["Philosophy", "Legacy", "Products", "Infrastructure", "Quality", "Future"];
 
-export const storyMoments = [
-  {
-    year: "Legacy",
-    title: "Nourishment as a daily promise",
-    copy: "Amrit Food grew around the quiet belief that trust is built meal by meal, delivery by delivery, and generation by generation.",
-    image: "/legacy-01.jpg"
-  },
-  {
-    year: "Scale",
-    title: "From households to high-volume food businesses",
-    copy: "The ecosystem expanded from familiar dairy staples into institutional solutions trusted by cafes, restaurants, kitchens, and food brands.",
-    image: "/scale-02.jpg"
-  },
-  {
-    year: "Tomorrow",
-    title: "Food infrastructure for modern India",
-    copy: "With precision manufacturing and innovation-led development, Amrit Food continues to support the next era of Indian food experiences.",
-    image: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1400&q=80"
-  }
+export const coreValues = [
+  { value: "Committed", description: "Delivering on every promise — to our clients, consumers, and communities." },
+  { value: "Original", description: "Authentic, clean-label products with no shortcuts on quality or flavour." },
+  { value: "Caring", description: "People-first approach — for our employees, farmers, and end consumers." },
+  { value: "Ethical", description: "Transparent processes, honest sourcing, and responsible business practices." }
 ];
 
-export const products = [
+export const institutionalClients = [
+  { name: "McDonald's", logo: "/clients/McDonald's.png" },
+  { name: "Starbucks", logo: "/clients/Starbucks.png" },
+  { name: "Subway", logo: "/clients/subway.png" },
+  { name: "IKEA", logo: "/clients/ikea.png" },
+  { name: "D Mart", logo: "/clients/Dmart.png" },
+  { name: "Haldirams", logo: "/clients/haldirams.webp" },
+  { name: "Bikanervala", logo: "/clients/bikanervala.png" },
+  { name: "7-Eleven", logo: "/clients/7-eleven.svg" },
+  { name: "Pret A Manger", logo: "/clients/pret a manager.avif" },
+  { name: "Pizza Express", logo: "/clients/Pizzaexpress.jpg" },
+  { name: "Cafe Delhi Heights", logo: "/clients/cafe-delhi-heights.png" },
+  { name: "Rolls King", logo: "/clients/rollsking-.png" }
+];
+
+export const coolMProducts = [
   {
-    title: "Instant Dessert Mix",
-    size: "500 ml",
-    price: "INR 1,900.00",
-    image: "/brand/instant-dessert-mix.png",
-    context: "A smooth dessert base designed for repeatable indulgence and high-volume service.",
-    tone: "Dessert counters, caterers, restaurants, and modern kitchens.",
-    accent: "#F2C400"
-  },
-  {
-    title: "Instant Liquid Ice Cream Mix",
-    size: "1000 ml",
-    price: "INR 2,200.00",
-    image: "/brand/instant-liquid-ice-cream-mix.png",
-    context: "A ready liquid mix that gives frozen dessert makers consistency, speed, and texture.",
-    tone: "Ice cream makers, parlours, cafes, and dessert brands.",
-    accent: "#8CC63E"
-  },
-  {
-    title: "Double Toned Milk",
-    size: "500 ml",
-    price: "INR 620.00",
-    image: "/brand/just-milk-double-toned.png",
-    context: "Everyday long-life milk shaped for purity, convenience, and family confidence.",
-    tone: "Homes, institutions, hostels, travel, and retail shelves.",
-    accent: "#65B997"
-  },
-  {
-    title: "Toned Milk",
-    size: "500 ml",
-    price: "INR 700.00",
-    image: "/brand/just-milk-toned.png",
-    context: "A dependable dairy staple with the familiarity and reach of daily nourishment.",
-    tone: "Families, breakfast tables, offices, and food service.",
-    accent: "#E63228"
-  },
-  {
-    title: "Low Fat Cream",
+    title: "Cool M Fresh Cream",
     size: "910 ml",
-    price: "INR 230.00",
+    shelfLife: "60 days (refrigerated)",
     image: "/brand/low-fat-cream.png",
-    context: "Balanced richness for recipes that need smoothness without heaviness.",
-    tone: "Sauces, soups, bakeries, hotels, and cafe kitchens.",
+    context: "Built for rich texture and consistency in high-volume institutional food prep.",
     accent: "#6B255C"
   },
   {
-    title: "Whipping Cream Pouch",
-    size: "450 ml",
-    price: "INR 4,000.00",
+    title: "Cool M Cooking Cream",
+    size: "910 ml",
+    shelfLife: "60 days (refrigerated)",
     image: "/brand/whipping-cream.png",
-    context: "Performance cream for airy finishes, dessert theatre, and reliable presentation.",
-    tone: "Bakeries, dessert studios, restaurants, and cloud kitchens.",
+    context: "Stable under heat, ideal for velvety gravies, soups, and professional sauces.",
     accent: "#F59A23"
   },
   {
-    title: "Just Milk",
-    size: "Ready to serve",
-    price: "Institutional pack",
-    image: "/justMilk.jpeg",
-    context: "Clean everyday dairy designed for modern retail, food service, and dependable daily consumption.",
-    tone: "Homes, offices, cafes, institutions, and travel formats.",
-    accent: "#2F80ED"
+    title: "Cool M Instant Liquid Ice Cream Mix",
+    size: "1 Litre",
+    shelfLife: "90 days (refrigerated)",
+    image: "/brand/instant-liquid-ice-cream-mix.png",
+    context: "Ready liquid mix offering frozen dessert makers consistency, speed, and premium overrun.",
+    accent: "#8CC63E"
   },
   {
-    title: "Just Protein Shake",
-    size: "On-the-go nutrition",
-    price: "Value-added dairy",
-    image: "/justProteinShake.jpeg",
-    context: "A future-facing dairy beverage made for active routines, convenience, and modern nutrition habits.",
-    tone: "Fitness consumers, students, workplaces, and quick-service retail.",
-    accent: "#7C3AED"
+    title: "Cool M Instant Dessert Mix",
+    size: "500 ml",
+    shelfLife: "120 days (refrigerated)",
+    image: "/brand/instant-dessert-mix.png",
+    context: "Repeatable indulgence designed for dessert counters, buffets, and quick-service prep.",
+    accent: "#F2C400"
   },
   {
-    title: "Just Cold Coffee",
-    size: "Cafe-style beverage",
-    price: "Ready to drink",
+    title: "Cool M Cold Coffee",
+    size: "1000 ml",
+    shelfLife: "120 days (refrigerated)",
     image: "/justColdCoffee.jpeg",
-    context: "A smooth cold coffee experience that brings dairy richness into quick, familiar moments of refreshment.",
-    tone: "Cafes, retail chillers, offices, campuses, and travel shelves.",
+    context: "Bulk RTD beverage crafted for cafes, quick-service counters, and institutional dining.",
     accent: "#8B5A2B"
+  },
+  {
+    title: "RTS Shakes",
+    size: "500 ml",
+    shelfLife: "120 days (refrigerated)",
+    image: "/justProteinShake.jpeg",
+    context: "Perfectly blended ready-to-serve shakes for canteen, pantry, and event catering.",
+    accent: "#7C3AED"
   }
+];
+
+export const justPillars = [
+  { title: "Delightful Taste", copy: "Creamy, real-milk taste across a variety of exciting flavours." },
+  { title: "Honest-to-Goodness", copy: "No preservatives, no artificial additives — just real, quality milk." },
+  { title: "Ready-to-drink", copy: "Open and sip on-the-go, hassle-free, ready to drink anytime." },
+  { title: "Clean Label", copy: "High quality, transparent ingredients trusted by health-conscious consumers." }
+];
+
+export const justProducts = [
+  { title: "JUST Coffee Milk", price: "INR 40.00", note: "Rich, smooth, zero preservatives", image: "/justColdCoffee.jpeg", accent: "#8B5A2B" },
+  { title: "JUST Strawberry Milk", price: "INR 40.00", note: "Classic fruity favourite, rich in flavour", image: "/brand/just-milk-toned.png", accent: "#E63228" },
+  { title: "JUST Elaichi Milk", price: "INR 40.00", note: "Real cardamom, traditional refreshing taste", image: "/brand/just-milk-double-toned.png", accent: "#65B997" },
+  { title: "JUST Kesar Badam Milk", price: "INR 40.00", note: "Premium saffron-almond blend", image: "/brand/just-milk-toned.png", accent: "#F2C400" },
+  { title: "JUST Mocha Milk", price: "INR 40.00", note: "Rich chocolate-coffee hybrid taste", image: "/justColdCoffee.jpeg", accent: "#8B5A2B" },
+  { title: "JUST Butter Scotch Milk", price: "INR 40.00", note: "Indulgent, buttery and creamy delight", image: "/brand/just-milk-toned.png", accent: "#F59A23" },
+  { title: "JUST Salted Caramel Milk", price: "INR 40.00", note: "Premium trending flavour profile", image: "/brand/just-milk-toned.png", accent: "#C8A85A" },
+  { title: "JUST Cold Coffee, Protein Shakes & Iced Tea", price: "INR 120 / 150 / 60", note: "High-value, clean label premium RTD range", image: "/justProteinShake.jpeg", accent: "#7C3AED" }
+];
+
+export const uhtProducts = [
+  {
+    title: "Milkyway Double Toned Milk",
+    details: "Treated with direct steam infusion Ultra Heat Treatment. Easy-to-stock packs, authentic taste of pasteurized milk.",
+    shelfLife: "2 Months",
+    image: "/brand/just-milk-double-toned.png",
+    accent: "#65B997"
+  },
+  {
+    title: "Milkyway Toned Milk",
+    details: "Treated with direct steam infusion Ultra Heat Treatment. Easy-to-stock packs, authentic taste of pasteurized milk.",
+    shelfLife: "3 Months",
+    image: "/brand/just-milk-toned.png",
+    accent: "#E63228"
+  },
+  {
+    title: "Amrit Standardized Milk",
+    details: "Ultra pasteurized homogenized milk, safe for everyday consumption in homes and institutions. presently the only one of its kind in India.",
+    badge: "NEW & Unique",
+    image: "/justMilk.jpeg",
+    accent: "#2F80ED"
+  }
+];
+
+export const businessGlance = [
+  { dimension: "Group Heritage", detail: "81-year-old Amrit Corp. Ltd. — publicly listed" },
+  { dimension: "Established", detail: "1991 (Amrit Food)" },
+  { dimension: "Plant Size", detail: "~20,000 sq. mtrs." },
+  { dimension: "Certification", detail: "FSSC 22000 certified" },
+  { dimension: "B2B Brand", detail: "Cool M — institutional dairy range" },
+  { dimension: "B2C Brand", detail: "JUST — flavoured milk & premium RTD (drinkjust.in)" },
+  { dimension: "UHT Technology", detail: "APV Denmark (direct steam infusion)" },
+  { dimension: "Aseptic Packaging", detail: "Prepac, France" },
+  { dimension: "2030 Revenue Goal", detail: "INR 500 Crore at 10% PAT" }
 ];
 
 export const impact = [

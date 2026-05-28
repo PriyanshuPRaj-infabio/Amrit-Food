@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ChevronDown, Factory, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
+import { ChevronDown, Factory, Mail, MapPin, Phone, ShieldCheck, Award, Heart, Scale, Compass, Check, ArrowRight, Activity, Percent } from "lucide-react";
 import { MotionProvider } from "@/components/motion-provider";
 import { MagneticButton } from "@/components/magnetic-button";
 import { Reveal } from "@/components/reveal";
-import { impact, innovations, navItems, process, products, stats } from "@/data/site";
+import { impact, innovations, navItems, process, coolMProducts, justProducts, uhtProducts, coreValues, justPillars, institutionalClients, businessGlance, stats } from "@/data/site";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,6 +29,7 @@ export function AmritExperience() {
         <Infrastructure />
         <QualityTrust />
         <FutureInnovation />
+        <BusinessAtAGlance />
         <Partnerships />
         <EmotionalEnding />
         <PremiumFooter />
@@ -93,9 +94,9 @@ function Hero() {
       <motion.div style={{ y: textY }} className="relative z-10 mx-auto flex min-h-[calc(100vh-7rem)] max-w-7xl flex-col justify-center px-5 pb-14 md:px-8">
         <Reveal className="max-w-5xl">
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.34em] text-gold">Quietly powering India&apos;s food experiences</p>
-          <h1 className="text-balance font-display text-6xl leading-[0.93] tracking-normal md:text-8xl lg:text-[8.7rem]">
-            <span className="block bg-gradient-to-r from-gold via-ivory to-gold bg-clip-text text-transparent">From India&apos;s Dairy Legacy</span>
-            <span className="block">to Tomorrow&apos;s Food Innovation.</span>
+          <h1 className="text-balance font-display text-6xl leading-[1.12] tracking-normal md:text-8xl lg:text-[8.7rem]">
+            <span className="block bg-gradient-to-r from-gold via-ivory to-gold bg-clip-text text-transparent pb-3">From India&apos;s Dairy Legacy</span>
+            <span className="block pb-2">to Tomorrow&apos;s Food Innovation.</span>
           </h1>
         </Reveal>
         <Reveal delay={0.16} className="mt-8 max-w-2xl text-lg leading-8 text-ivory/78 md:text-xl">
@@ -126,27 +127,97 @@ function AmbientParticles() {
 }
 
 function BrandPhilosophy() {
+  const valueIcons = [ShieldCheck, Award, Heart, Scale];
+
   return (
-    <section id="philosophy" className="relative bg-ivory-warm px-5 py-28 md:px-8 md:py-36">
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-        <Reveal>
-          <p className="text-sm font-bold uppercase tracking-[0.28em] text-copper">Brand philosophy</p>
-          <h2 className="mt-6 font-display text-5xl leading-[1.02] md:text-7xl">
-            <span className="block bg-gradient-to-r from-navy via-copper to-navy bg-clip-text text-transparent">A silent force</span>
-            <span className="block text-navy">in the rhythm of modern India.</span>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.12}>
-          <p className="text-2xl leading-10 text-ink/78 md:text-3xl">Amrit Food exists where memory meets infrastructure: morning milk, cafe service, restaurant prep, dessert counters, institutional kitchens, and the food brands shaping tomorrow&apos;s appetite.</p>
-          <div className="mt-10 grid gap-4 sm:grid-cols-3">
-            {["Trust", "Scale", "Purity"].map((word) => (
-              <div key={word} className="border-t border-ink/15 pt-5">
-                <p className="font-display text-4xl text-navy">{word}</p>
-                <p className="mt-2 text-sm leading-6 text-ink/60">Built through consistency, felt in everyday moments.</p>
-              </div>
-            ))}
+    <section id="philosophy" className="relative bg-ivory-warm px-5 py-24 md:px-8 md:py-32">
+      <div className="mx-auto max-w-7xl">
+        {/* Intro */}
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <Reveal>
+            <p className="text-sm font-bold uppercase tracking-[0.28em] text-copper">Brand philosophy</p>
+            <h2 className="mt-6 font-display text-5xl leading-[1.12] md:text-7xl">
+              <span className="block bg-gradient-to-r from-navy via-copper to-navy bg-clip-text text-transparent pb-2">A silent force</span>
+              <span className="block text-navy pb-1">in the rhythm of modern India.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="text-2xl leading-10 text-ink/78 md:text-3xl">Amrit Food exists where memory meets infrastructure: morning milk, cafe service, restaurant prep, dessert counters, institutional kitchens, and the food brands shaping tomorrow&apos;s appetite.</p>
+          </Reveal>
+        </div>
+
+        {/* Purpose & Vision Dashboard */}
+        <div className="mt-20 grid gap-8 lg:grid-cols-2">
+          {/* Purpose */}
+          <Reveal className="flex flex-col justify-between rounded-[2rem] border border-ink/10 bg-cream p-8 shadow-cinematic transition hover:border-gold/30">
+            <div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-copper/10 text-copper"><Compass className="h-6 w-6" /></div>
+              <h3 className="mt-6 font-display text-3xl text-navy">Purpose — Why We Exist</h3>
+              <p className="mt-6 font-display text-2xl leading-relaxed text-copper italic">
+                &ldquo;To provide convenient, delicious dairy and allied products that make customers go WOW!&rdquo;
+              </p>
+            </div>
+            <div className="mt-8 border-t border-ink/10 pt-6">
+              <p className="text-sm text-ink/50 uppercase tracking-wider">Our driving mission every single day</p>
+            </div>
+          </Reveal>
+
+          {/* Vision */}
+          <Reveal delay={0.15} className="rounded-[2rem] border border-ink/10 bg-navy p-8 text-ivory shadow-cinematic transition hover:border-gold/30">
+            <div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gold/20 text-gold"><Activity className="h-6 w-6" /></div>
+              <h3 className="mt-6 font-display text-3xl bg-gradient-to-r from-gold via-ivory to-gold bg-clip-text text-transparent pb-1.5">Vision — Scaling New Heights</h3>
+              <p className="mt-4 text-base text-ivory/80 leading-7">
+                Our goal is to multiply revenues <span className="text-gold font-bold">4x by 2030</span>, reaching <span className="text-gold font-bold">INR 500 Crore</span> with a <span className="text-gold font-bold">10% PAT</span>. By then, we aim to shift our sales mix significantly toward branded products:
+              </p>
+            </div>
+            <div className="mt-8 space-y-4">
+              {[
+                { label: "Branded Products", pct: 30, color: "bg-gold" },
+                { label: "Branded B2B Channels", pct: 50, color: "bg-copper" },
+                { label: "Branded B2C Channels", pct: 20, color: "bg-sage" }
+              ].map((item, idx) => (
+                <div key={idx} className="space-y-1.5">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-ivory/70">{item.label}</span>
+                    <span className="font-bold text-gold">{item.pct}%</span>
+                  </div>
+                  <div className="h-2 w-full overflow-hidden rounded-full bg-ivory/10">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${item.pct}%` }}
+                      transition={{ duration: 1, ease: "easeOut" }}
+                      viewport={{ once: true }}
+                      className={`h-full ${item.color}`}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Core Values */}
+        <div className="mt-24">
+          <Reveal>
+            <p className="text-sm font-bold uppercase tracking-[0.28em] text-copper text-center">Core Pillars</p>
+            <h3 className="mt-4 font-display text-4xl text-navy text-center md:text-5xl">Our Core Values</h3>
+          </Reveal>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {coreValues.map((item, idx) => {
+              const Icon = valueIcons[idx];
+              return (
+                <Reveal key={item.value} delay={idx * 0.1} className="group relative rounded-2xl border border-ink/10 bg-cream/50 p-6 transition-all duration-300 hover:border-gold/40 hover:bg-cream hover:shadow-cinematic">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-copper/20 bg-copper/5 text-copper transition duration-300 group-hover:scale-110 group-hover:bg-copper group-hover:text-ivory">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h4 className="mt-6 font-display text-2xl text-navy transition duration-300 group-hover:text-gold">{item.value}</h4>
+                  <p className="mt-3 text-sm leading-6 text-ink/64">{item.description}</p>
+                </Reveal>
+              );
+            })}
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
@@ -155,8 +226,8 @@ function BrandPhilosophy() {
 const legacyScenes = [
   {
     eyebrow: "Foundations of Trust",
-    title: "Since 1991, Trust built slowly, then carried forward quietly.",
-    copy: "Long before food systems became visible brands, Amrit Food began with a simple discipline: nourish consistently, deliver honestly, and let reliability become memory.",
+    title: "Established in 1991, built on an 81-year legacy of trusted food brands.",
+    copy: "Amrit Food is a division of Amrit Corp. Limited, a publicly listed company with an 81-year legacy of building iconic food brands including Uncle Chipps and Gagan Ghee. Established in 1991, we continue to carry that trust forward.",
     image: "/legacy-01.jpg",
     mood: "warm",
     layout: "split"
@@ -256,9 +327,9 @@ function LegacyStory() {
 
       <div className="legacy-opening relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-5 py-28 md:px-8">
         <p className="mb-8 text-sm font-bold uppercase tracking-[0.32em] text-sage">Legacy story</p>
-        <h2 className="max-w-6xl overflow-hidden font-display text-6xl leading-[0.96] text-navy md:text-8xl lg:text-[8.6rem]">
+        <h2 className="max-w-6xl overflow-hidden font-display text-6xl leading-[1.1] text-navy md:text-8xl lg:text-[8.6rem]">
           {["Part of everyday Indian life,", "without needing to", "announce itself."].map((line) => (
-            <span key={line} className="block overflow-hidden pb-2">
+            <span key={line} className="block overflow-hidden pb-3">
               <span className="legacy-title-line block">{line}</span>
             </span>
           ))}
@@ -283,7 +354,7 @@ function LegacyStory() {
               <div className={`relative mx-auto grid min-h-screen max-w-7xl items-center gap-12 px-5 py-28 md:px-8 ${isFull ? "lg:grid-cols-[0.86fr_1.14fr]" : "lg:grid-cols-2"}`}>
                 <div className={`legacy-copy ${reverse ? "lg:order-2" : ""} ${isFull ? "max-w-4xl" : ""}`}>
                   <p className={`text-xs font-bold uppercase tracking-[0.34em] ${dark ? "text-gold" : "text-copper"}`}>{scene.eyebrow}</p>
-                  <h3 className={`mt-6 text-balance font-display leading-[1.02] ${isFull ? "text-5xl md:text-7xl" : "text-5xl md:text-6xl"}`}>{scene.title}</h3>
+                  <h3 className={`mt-6 text-balance font-display leading-[1.12] pb-1.5 ${isFull ? "text-5xl md:text-7xl" : "text-5xl md:text-6xl"}`}>{scene.title}</h3>
                   <p className={`mt-8 max-w-2xl text-lg leading-8 ${dark ? "text-ivory/68" : "text-ink/68"}`}>{scene.copy}</p>
                 </div>
 
@@ -317,77 +388,239 @@ function LegacyStory() {
 }
 
 function ProductEcosystem() {
-  const track = useRef<HTMLDivElement>(null);
-  const section = useRef<HTMLElement>(null);
+  const [activeTab, setActiveTab] = useState<"b2b" | "b2c" | "uht">("b2b");
+
   useEffect(() => {
-    if (!track.current || !section.current) return;
-    const ctx = gsap.context(() => {
-      const buildTween = () => {
-        const containerWidth = section.current!.clientWidth;
-        const trackWidth = track.current!.scrollWidth;
-        const distance = trackWidth - containerWidth;
-        return gsap.to(track.current, {
-          x: -distance,
-          ease: "none",
-          scrollTrigger: { trigger: section.current, start: "top top", end: `+=${distance * 1.8}`, scrub: 0.8, pin: true, invalidateOnRefresh: true }
-        });
-      };
-      const tween = buildTween();
-      return () => tween.kill();
-    }, section);
-    return () => ctx.revert();
-  }, []);
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 450); // wait for AnimatePresence tab height transition
+    return () => clearTimeout(timer);
+  }, [activeTab]);
 
   return (
-    <section id="products" ref={section} className="relative bg-ivory py-24">
+    <section id="products" className="relative bg-ivory py-24 md:py-32">
       <div className="px-5 md:px-8">
         <div className="mx-auto max-w-7xl">
           <Reveal className="max-w-4xl">
             <p className="text-sm font-bold uppercase tracking-[0.28em] text-copper">Product ecosystem</p>
-            <h2 className="mt-6 font-display text-5xl leading-[1.02] md:text-7xl">
-              <span className="block bg-gradient-to-r from-navy via-copper to-gold bg-clip-text text-transparent">Real Amrit products,</span>
-              <span className="block">elevated into a food infrastructure story.</span>
+            <h2 className="mt-6 font-display text-5xl leading-[1.12] md:text-7xl">
+              <span className="block bg-gradient-to-r from-navy via-copper to-gold bg-clip-text text-transparent pb-2">Real Amrit products,</span>
+              <span className="block pb-1.5">elevated into a food infrastructure story.</span>
             </h2>
           </Reveal>
+
+          {/* Tab Switcher */}
+          <div className="mt-12 flex justify-start border-b border-ink/10 pb-px">
+            {[
+              { id: "b2b", label: "B2B Brand — Cool M" },
+              { id: "b2c", label: "B2C Brand — JUST" },
+              { id: "uht", label: "UHT Milk & Standardized Essentials" }
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as any)}
+                className={`relative pb-4 pr-6 text-sm font-bold uppercase tracking-wider transition-colors duration-300 md:pr-10 ${
+                  activeTab === tab.id ? "text-gold" : "text-ink/40 hover:text-ink/80"
+                }`}
+              >
+                {tab.label}
+                {activeTab === tab.id && (
+                  <motion.div
+                    layoutId="activeTabUnderline"
+                    className="absolute bottom-0 left-0 h-0.5 w-[calc(100%-1.5rem)] md:w-[calc(100%-2.5rem)] bg-gold"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* Tab Content */}
+          <div className="mt-14">
+            <AnimatePresence mode="wait">
+              {activeTab === "b2b" && (
+                <motion.div
+                  key="b2b"
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {/* B2B Cool M Product Grid */}
+                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    {coolMProducts.map((product, index) => (
+                      <motion.article
+                        key={product.title}
+                        whileHover={{ y: -10, scale: 1.01 }}
+                        transition={{ type: "spring", stiffness: 200, damping: 16 }}
+                        className="group relative overflow-hidden rounded-[1.75rem] border border-ink/10 bg-cream p-6 shadow-cinematic transition-all duration-300 hover:border-gold/40 hover:shadow-[0_28px_90px_rgba(200,168,90,0.2)]"
+                      >
+                        <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full blur-3xl transition-all duration-300 group-hover:scale-125" style={{ backgroundColor: `${product.accent}3D` }} />
+                        <div className="absolute inset-x-6 top-6 h-64 rounded-[1.35rem] border border-ink/5 bg-ivory shadow-[inset_0_0_40px_rgba(15,23,42,0.035)]" />
+                        <div className="relative z-10 mx-auto mt-2 flex h-72 items-center justify-center">
+                          <Image src={product.image} alt={product.title} width={260} height={220} className="max-h-[210px] w-auto object-contain drop-shadow-[0_16px_24px_rgba(15,23,42,0.12)] transition-all duration-300 group-hover:scale-105" />
+                        </div>
+                        <div className="relative z-10 mt-5">
+                          <div className="flex items-center justify-between gap-4">
+                            <p className="text-xs font-bold uppercase tracking-[0.24em] text-sage">{product.size}</p>
+                            <span className="rounded-full px-3 py-1 text-xs font-bold text-navy" style={{ backgroundColor: `${product.accent}22` }}>
+                              {product.shelfLife}
+                            </span>
+                          </div>
+                          <h3 className="mt-4 font-display text-3xl leading-[1.15] text-navy transition-colors duration-300 group-hover:text-gold pb-1">{product.title}</h3>
+                          <p className="mt-4 text-sm leading-6 text-ink/70">{product.context}</p>
+                        </div>
+                        <div className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-gradient-to-r from-gold/0 via-gold to-gold/0 transition-transform duration-500 group-hover:scale-x-100" />
+                      </motion.article>
+                    ))}
+                  </div>
+
+                  {/* B2B Clients Ticker */}
+                  <LogoMarquee />
+                </motion.div>
+              )}
+
+              {activeTab === "b2c" && (
+                <motion.div
+                  key="b2c"
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="grid gap-8">
+                    {/* Brand Promises */}
+                    <div className="col-span-full rounded-[2rem] border border-ink/10 bg-cream p-8 shadow-cinematic lg:p-12">
+                      <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+                        <div>
+                          <span className="rounded-full bg-gold/20 px-3 py-1 text-xs font-bold text-navy uppercase tracking-wider">Flavoured Milk & Premium RTD</span>
+                          <h3 className="mt-4 font-display text-4xl text-navy">The JUST Brand Story</h3>
+                          <p className="mt-6 text-base leading-8 text-ink/70">
+                            Amrit Food has been in the flavoured milk business for over 10 years, originally marketing under &lsquo;Just Milk&rsquo; now rebranded to JUST. The brand is expanding its range to include high-value ready-to-consume products including cold coffee, protein shakes, and custard, with a focus on clean-label, premium quality products.
+                          </p>
+                          <div className="mt-8 p-6 rounded-2xl bg-gold/10 border border-gold/20 text-navy">
+                            <p className="text-xs uppercase tracking-[0.2em] font-bold text-copper">D2C Delivery & Availability</p>
+                            <p className="mt-2 text-sm leading-6">
+                              Currently available in <span className="font-bold">Delhi/NCR</span>. Order online at <a href="https://drinkjust.in" target="_blank" rel="noopener noreferrer" className="font-bold text-royal underline transition hover:text-gold">drinkjust.in</a>. Free shipping on all orders | Hassle-free returns | Direct-to-consumer delivery.
+                            </p>
+                          </div>
+                        </div>
+                        <div className="grid gap-4 sm:grid-cols-2">
+                          {justPillars.map((pillar) => (
+                            <div key={pillar.title} className="rounded-xl border border-ink/5 bg-ivory p-5 shadow-sm transition hover:shadow-md">
+                              <h4 className="font-display text-lg font-bold text-navy flex items-center gap-2"><Check className="h-4 w-4 text-gold shrink-0" /> {pillar.title}</h4>
+                              <p className="mt-2 text-xs leading-5 text-ink/60">{pillar.copy}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* B2C Product Grid */}
+                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                      {justProducts.map((product) => (
+                        <motion.article
+                          key={product.title}
+                          whileHover={{ y: -10, scale: 1.01 }}
+                          transition={{ type: "spring", stiffness: 200, damping: 16 }}
+                          className="group relative overflow-hidden rounded-[1.75rem] border border-ink/10 bg-cream p-6 shadow-cinematic transition-all duration-300 hover:border-gold/40 hover:shadow-[0_28px_90px_rgba(200,168,90,0.2)]"
+                        >
+                          <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full blur-3xl transition-all duration-300 group-hover:scale-125" style={{ backgroundColor: `${product.accent}3D` }} />
+                          <div className="absolute inset-x-6 top-6 h-64 rounded-[1.35rem] border border-ink/5 bg-ivory shadow-[inset_0_0_40px_rgba(15,23,42,0.035)]" />
+                          <div className="relative z-10 mx-auto mt-2 flex h-72 items-center justify-center">
+                            <Image src={product.image} alt={product.title} width={260} height={220} className="max-h-[210px] w-auto object-contain drop-shadow-[0_16px_24px_rgba(15,23,42,0.12)] transition-all duration-300 group-hover:scale-105" />
+                          </div>
+                          <div className="relative z-10 mt-5">
+                            <div className="flex items-center justify-between gap-4">
+                              <p className="text-xs font-bold uppercase tracking-[0.24em] text-sage">Pack/Price</p>
+                              <span className="rounded-full px-3 py-1 text-xs font-bold text-navy" style={{ backgroundColor: `${product.accent}22` }}>
+                                {product.price}
+                              </span>
+                            </div>
+                            <h3 className="mt-4 font-display text-3xl leading-[1.15] text-navy transition-colors duration-300 group-hover:text-gold pb-1">{product.title}</h3>
+                            <p className="mt-4 text-sm leading-6 text-ink/70">{product.note}</p>
+                          </div>
+                          <div className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-gradient-to-r from-gold/0 via-gold to-gold/0 transition-transform duration-500 group-hover:scale-x-100" />
+                        </motion.article>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {activeTab === "uht" && (
+                <motion.div
+                  key="uht"
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.3 }}
+                  className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+                >
+                  {uhtProducts.map((product) => {
+                    const isFeatured = product.badge !== undefined;
+                    return (
+                      <motion.article
+                        key={product.title}
+                        whileHover={{ y: -10, scale: 1.01 }}
+                        transition={{ type: "spring", stiffness: 200, damping: 16 }}
+                        className={`group relative overflow-hidden rounded-[1.75rem] border p-6 shadow-cinematic transition-all duration-300 ${
+                          isFeatured
+                            ? "border-gold/50 bg-[#08111f] text-ivory hover:border-gold hover:shadow-[0_28px_90px_rgba(200,168,90,0.3)]"
+                            : "border-ink/10 bg-cream hover:border-gold/40 hover:shadow-[0_28px_90px_rgba(200,168,90,0.2)]"
+                        }`}
+                      >
+                        <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full blur-3xl transition-all duration-300 group-hover:scale-125" style={{ backgroundColor: `${product.accent}3D` }} />
+                        <div className={`absolute inset-x-6 top-6 h-64 rounded-[1.35rem] border shadow-[inset_0_0_40px_rgba(15,23,42,0.035)] ${isFeatured ? "border-white/5 bg-navy/60" : "border-ink/5 bg-ivory"}`} />
+                        <div className="relative z-10 mx-auto mt-2 flex h-72 items-center justify-center">
+                          <Image src={product.image} alt={product.title} width={260} height={220} className="max-h-[210px] w-auto object-contain drop-shadow-[0_16px_24px_rgba(15,23,42,0.12)] transition-all duration-300 group-hover:scale-105" />
+                        </div>
+                        <div className="relative z-10 mt-5">
+                          <div className="flex items-center justify-between gap-4">
+                            <p className={`text-xs font-bold uppercase tracking-[0.24em] ${isFeatured ? "text-gold" : "text-sage"}`}>UHT Range</p>
+                            <span className={`rounded-full px-3 py-1 text-xs font-bold ${isFeatured ? "bg-gold text-navy" : "text-navy"}`} style={isFeatured ? {} : { backgroundColor: `${product.accent}22` }}>
+                              {isFeatured ? product.badge : `Shelf life: ${product.shelfLife}`}
+                            </span>
+                          </div>
+                          <h3 className={`mt-4 font-display text-3xl leading-[1.15] transition-colors duration-300 pb-1 ${isFeatured ? "text-ivory group-hover:text-gold" : "text-navy group-hover:text-gold"}`}>{product.title}</h3>
+                          <p className={`mt-4 text-sm leading-6 ${isFeatured ? "text-ivory/70" : "text-ink/70"}`}>{product.details}</p>
+                        </div>
+                        <div className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-gradient-to-r from-gold/0 via-gold to-gold/0 transition-transform duration-500 group-hover:scale-x-100" />
+                      </motion.article>
+                    );
+                  })}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
-      <div ref={track} className="mt-14 flex w-max gap-6 px-5 pb-8 pr-96 md:px-8 md:pr-[32rem]">
-        {products.map((product, index) => (
-          <motion.article
-            key={product.title}
-            whileHover={{ y: -18, rotateX: 6, rotateY: index % 2 ? -6 : 6, scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 200, damping: 16 }}
-            className="group relative h-[540px] w-[82vw] max-w-[450px] overflow-hidden rounded-[1.75rem] border border-ink/10 bg-cream p-6 shadow-cinematic transition-all duration-300 hover:border-gold/40 hover:shadow-[0_28px_90px_rgba(200,168,90,0.25)] md:w-[450px]"
-          >
-            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full blur-3xl transition-all duration-300 group-hover:scale-125" style={{ backgroundColor: `${product.accent}3D` }} />
-            <div className="absolute inset-x-6 top-6 h-64 rounded-[1.35rem] border border-ink/5 bg-ivory shadow-[inset_0_0_40px_rgba(15,23,42,0.035)] transition-all duration-300 group-hover:shadow-[inset_0_0_60px_rgba(15,23,42,0.08)]" />
-            <motion.div
-              className="relative z-10 mx-auto mt-2 flex h-72 items-center justify-center"
-              whileHover={{ scale: 1.065 }}
-              transition={{ type: "spring", stiffness: 200, damping: 14 }}
-            >
-              <Image src={product.image} alt={product.title} width={390} height={310} className="max-h-[250px] w-auto object-contain drop-shadow-[0_24px_34px_rgba(15,23,42,0.18)] transition-all duration-300 group-hover:drop-shadow-[0_32px_48px_rgba(15,23,42,0.28)]" />
-            </motion.div>
-            <div className="relative z-10 mt-5">
-              <div className="flex items-center justify-between gap-4">
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-sage transition-colors duration-300 group-hover:text-gold">{product.size}</p>
-                <motion.span
-                  whileHover={{ scale: 1.1 }}
-                  className="rounded-full px-3 py-1 text-xs font-bold text-navy transition-all duration-300"
-                  style={{ backgroundColor: `${product.accent}33` }}
-                >
-                  {product.price}
-                </motion.span>
-              </div>
-              <h3 className="mt-4 max-w-xs font-display text-4xl leading-[0.98] text-navy transition-colors duration-300 group-hover:text-gold md:text-5xl">{product.title}</h3>
-              <p className="mt-5 max-w-sm text-base leading-7 text-ink/70 transition-colors duration-300 group-hover:text-ink/90">{product.context}</p>
-              <p className="absolute bottom-[-4.75rem] left-0 max-w-[21rem] text-xs font-bold uppercase tracking-[0.17em] text-copper transition-colors duration-300 group-hover:text-gold md:bottom-[-4.25rem]">{product.tone}</p>
-            </div>
-            <div className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-gradient-to-r from-gold/0 via-gold to-gold/0 transition-transform duration-500 group-hover:scale-x-100" />
-          </motion.article>
-        ))}
-      </div>
     </section>
+  );
+}
+
+function LogoMarquee() {
+  return (
+    <div className="mt-20 border-t border-ink/10 pt-16">
+      <p className="text-center text-xs font-bold uppercase tracking-[0.28em] text-copper mb-10">Trusted by Key B2B Institutional Clients</p>
+      <div className="relative w-full overflow-hidden bg-cream/40 py-8 border-y border-ink/5">
+        <div className="flex animate-marquee gap-16 items-center">
+          {institutionalClients.map((client, idx) => (
+            <div key={idx} className="flex shrink-0 items-center justify-center gap-4 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+              <img src={client.logo} alt={client.name} className="h-9 w-auto object-contain max-w-[120px]" />
+              <span className="text-xs uppercase tracking-wider font-semibold text-navy/40">{client.name}</span>
+            </div>
+          ))}
+          {/* Duplicate for infinite loop */}
+          {institutionalClients.map((client, idx) => (
+            <div key={`dup-${idx}`} className="flex shrink-0 items-center justify-center gap-4 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+              <img src={client.logo} alt={client.name} className="h-9 w-auto object-contain max-w-[120px]" />
+              <span className="text-xs uppercase tracking-wider font-semibold text-navy/40">{client.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -406,16 +639,6 @@ function ValueImpact() {
         duration: 1,
         ease: "power3.out",
         scrollTrigger: { trigger: section.current, start: "top 62%" }
-      });
-
-      gsap.from(".impact-node", {
-        opacity: 0,
-        y: 70,
-        rotate: -2,
-        stagger: 0.12,
-        duration: 1.1,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".impact-field", start: "top 70%" }
       });
 
       gsap.to(".impact-halo", {
@@ -438,9 +661,9 @@ function ValueImpact() {
       <div className="relative mx-auto grid max-w-7xl gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
         <div>
           <p className="impact-kicker text-sm font-bold uppercase tracking-[0.32em] text-gold">Creating value beyond products</p>
-          <h2 className="impact-heading mt-7 max-w-4xl font-display text-6xl leading-[0.98] md:text-8xl">
-            <span className="block bg-gradient-to-r from-gold via-ivory to-gold bg-clip-text text-transparent">One ecosystem.</span>
-            <span className="block text-ivory">Millions of human outcomes.</span>
+          <h2 className="impact-heading mt-7 max-w-4xl font-display text-6xl leading-[1.12] md:text-8xl">
+            <span className="block bg-gradient-to-r from-gold via-ivory to-gold bg-clip-text text-transparent pb-2">One ecosystem.</span>
+            <span className="block text-ivory pb-1.5">Millions of human outcomes.</span>
           </h2>
         </div>
         <p className="impact-copy max-w-2xl text-xl leading-9 text-ivory/68">Every pouch, cream, mix, and dairy solution becomes part of a larger chain of trust: families fed, kitchens prepared, cafes moving, partners growing, and an industry becoming more capable.</p>
@@ -471,15 +694,6 @@ function Infrastructure() {
         ease: "power3.out",
         scrollTrigger: { trigger: section.current, start: "top 55%" }
       });
-
-      gsap.from(".infra-stat", {
-        opacity: 0,
-        y: 42,
-        stagger: 0.12,
-        duration: 0.9,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".infra-stats", start: "top 72%" }
-      });
     }, section);
 
     return () => ctx.revert();
@@ -491,15 +705,39 @@ function Infrastructure() {
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,17,31,0.98),rgba(8,17,31,0.7)_46%,rgba(8,17,31,0.92)),radial-gradient(circle_at_75%_26%,rgba(200,168,90,0.28),transparent_32%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:84px_84px] opacity-60" />
 
-      <div className="relative mx-auto grid min-h-[74vh] max-w-7xl gap-14 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
+      <div className="relative mx-auto grid min-h-[74vh] max-w-7xl gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <Reveal>
           <p className="text-sm font-bold uppercase tracking-[0.32em] text-gold">Manufacturing infrastructure</p>
-          <h2 className="mt-7 max-w-4xl font-display text-6xl leading-[0.96] md:text-8xl">
-            <span className="block bg-gradient-to-r from-gold via-ivory to-gold bg-clip-text text-transparent">Built for scale.</span>
-            <span className="block text-ivory">Calibrated for precision.</span>
+          <h2 className="mt-7 max-w-4xl font-display text-6xl leading-[1.12] md:text-8xl">
+            <span className="block bg-gradient-to-r from-gold via-ivory to-gold bg-clip-text text-transparent pb-2">Built for scale.</span>
+            <span className="block text-ivory pb-1.5">Calibrated for precision.</span>
           </h2>
           <div className="infra-line mt-10 h-px w-full bg-gradient-to-r from-gold via-ivory/25 to-transparent" />
-          <p className="mt-8 max-w-2xl text-xl leading-9 text-ivory/68">Behind every trusted batch is a disciplined industrial rhythm: sourcing, processing, formulation, packaging, and delivery aligned around food safety and repeatable quality.</p>
+          <p className="mt-8 max-w-2xl text-lg leading-8 text-ivory/78">
+            Behind every trusted batch is a disciplined industrial rhythm. Our state-of-the-art Ultra Heat Treatment plant is from **APV Denmark** using direct steam infusion technology for zero-bacteria products with unmatched quality and flavour. The Aseptic Packaging line is from **Prepac, France**, ensuring sterile packaging at minimal cost. Our bottling section uses an automatic filling line and a hot water spray sterilizer, ensuring long shelf life, great taste, and 100% bacteria-free products.
+          </p>
+          <div className="mt-8">
+            <div className="rounded-2xl border border-gold/30 bg-gold/10 p-6 backdrop-blur shadow-glow-gold">
+              <p className="text-xs uppercase tracking-[0.24em] font-bold text-gold">Our Unique Selling Proposition (USP)</p>
+              <p className="mt-2 text-sm leading-6 text-ivory/90">
+                <span className="font-bold text-ivory">Long shelf life, ready-to-use milk and milk products</span> that are 100% safe to consume directly from the pack.
+              </p>
+            </div>
+          </div>
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            <div className="rounded-xl border border-ivory/10 bg-navy/30 p-4">
+              <p className="text-xs font-bold text-gold uppercase tracking-wider">APV Denmark UHT</p>
+              <p className="mt-1 text-xs text-ivory/60">Direct steam infusion for zero-bacteria purity.</p>
+            </div>
+            <div className="rounded-xl border border-ivory/10 bg-navy/30 p-4">
+              <p className="text-xs font-bold text-gold uppercase tracking-wider">Prepac France Aseptic</p>
+              <p className="mt-1 text-xs text-ivory/60">Sterile packaging at minimal operating cost.</p>
+            </div>
+            <div className="rounded-xl border border-ivory/10 bg-navy/30 p-4">
+              <p className="text-xs font-bold text-gold uppercase tracking-wider">Retort Bottling</p>
+              <p className="mt-1 text-xs text-ivory/60">Automatic filling and hot water spray sterilization.</p>
+            </div>
+          </div>
         </Reveal>
 
         <div className="infra-stats relative">
@@ -510,11 +748,18 @@ function Infrastructure() {
               <p className="text-sm font-bold uppercase tracking-[0.28em] text-ivory/58">Operational flow</p>
             </div>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {stats.map(([value, label]) => (
-                <div key={value} className="infra-stat rounded-2xl border border-ivory/10 bg-ivory/[0.06] p-6">
+              {stats.map(([value, label], idx) => (
+                <motion.div
+                  key={value}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.7, delay: idx * 0.1, ease: "easeOut" }}
+                  className="infra-stat rounded-2xl border border-ivory/10 bg-ivory/[0.06] p-6"
+                >
                   <p className="font-display text-4xl text-gold md:text-5xl">{value}</p>
                   <p className="mt-3 text-sm uppercase tracking-[0.18em] text-ivory/58">{label}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -532,15 +777,6 @@ function QualityTrust() {
     if (reduceMotion) return;
 
     const ctx = gsap.context(() => {
-      gsap.from(".quality-step", {
-        opacity: 0,
-        y: 64,
-        stagger: 0.16,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".quality-rail", start: "top 72%" }
-      });
-
       gsap.from(".quality-thread", {
         scaleX: 0,
         transformOrigin: "left center",
@@ -559,10 +795,13 @@ function QualityTrust() {
         <Reveal className="max-w-5xl">
           <ShieldCheck className="h-12 w-12 text-gold" />
           <p className="mt-6 text-sm font-bold uppercase tracking-[0.32em] text-gold">Quality & trust</p>
-          <h2 className="mt-6 font-display text-6xl leading-[0.98] md:text-8xl">
-            <span className="block bg-gradient-to-r from-gold via-ivory to-gold bg-clip-text text-transparent">Trust is not claimed.</span>
-            <span className="block text-ivory">It moves through every checkpoint.</span>
+          <h2 className="mt-6 font-display text-6xl leading-[1.12] md:text-8xl">
+            <span className="block bg-gradient-to-r from-gold via-ivory to-gold bg-clip-text text-transparent pb-2">Trust is not claimed.</span>
+            <span className="block text-ivory pb-1.5">It moves through every checkpoint.</span>
           </h2>
+          <p className="mt-8 max-w-3xl text-lg leading-8 text-ivory/70">
+            Quality is a way of life at Amrit. Our fully equipped in-house laboratory is staffed by highly qualified microbiologists, chemists, and dairy technologists. We consistently monitor raw inputs, verify formulations in-process, and perform comprehensive microbiological analysis of finished products.
+          </p>
         </Reveal>
 
         <div className="quality-rail relative mt-20">
@@ -570,9 +809,17 @@ function QualityTrust() {
           <div className="grid gap-5 lg:grid-cols-4">
             {process.map((item, index) => {
               const Icon = item.icon;
+              const expandedCopy = index === 1 
+                ? "Tests on all incoming raw materials, in-process/finished product testing, and microbiological analysis of finished batches." 
+                : item.copy;
+
               return (
-                <article
+                <motion.article
                   key={item.title}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.8, delay: index * 0.12, ease: "easeOut" }}
                   onMouseMove={(event) => {
                     const card = event.currentTarget;
                     const rect = card.getBoundingClientRect();
@@ -595,9 +842,9 @@ function QualityTrust() {
                   <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-gold/30 bg-gold/15 text-gold transition duration-300 group-hover:scale-110 group-hover:bg-gold/25"><Icon className="h-7 w-7" /></div>
                   <p className="relative mt-20 text-xs font-bold uppercase tracking-[0.28em] text-ivory/42">Step {index + 1}</p>
                   <h3 className="relative mt-3 font-display text-4xl transition-colors duration-300 group-hover:text-gold">{item.title}</h3>
-                  <p className="relative mt-5 leading-7 text-ivory/64">{item.copy}</p>
+                  <p className="relative mt-5 leading-7 text-ivory/64">{expandedCopy}</p>
                   <div className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-gradient-to-r from-gold via-ivory/50 to-transparent transition-transform duration-500 group-hover:scale-x-100" />
-                </article>
+                </motion.article>
               );
             })}
           </div>
@@ -621,14 +868,6 @@ function FutureInnovation() {
         ease: "none",
         scrollTrigger: { trigger: section.current, start: "top bottom", end: "bottom top", scrub: 1 }
       });
-      gsap.from(".future-card", {
-        opacity: 0,
-        y: 70,
-        stagger: 0.14,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".future-grid", start: "top 72%" }
-      });
     }, section);
 
     return () => ctx.revert();
@@ -638,17 +877,41 @@ function FutureInnovation() {
     <section id="future" ref={section} className="relative overflow-hidden bg-ivory px-5 py-32 md:px-8 md:py-44">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(30,58,138,0.2),transparent_28%),radial-gradient(circle_at_80%_26%,rgba(110,128,104,0.2),transparent_26%),linear-gradient(135deg,#FFFDF7,#F5F1E8)]" />
       <div className="future-orbit absolute right-[-14rem] top-12 h-[42rem] w-[42rem] rounded-full border border-royal/10 bg-[conic-gradient(from_120deg,rgba(30,58,138,0.18),rgba(200,168,90,0.18),rgba(255,253,247,0),rgba(30,58,138,0.18))] blur-[1px]" />
-      <div className="relative mx-auto grid max-w-7xl gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
-        <Reveal>
-          <p className="text-sm font-bold uppercase tracking-[0.32em] text-royal">Future innovation</p>
-          <h2 className="mt-7 font-display text-6xl leading-[0.98] text-navy md:text-8xl">
-            <span className="block bg-gradient-to-r from-royal via-copper to-royal bg-clip-text text-transparent">The next era of Indian</span>
-            <span className="block text-navy">food needs capable partners.</span>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.12}>
-          <p className="text-xl leading-9 text-ink/66">Future readiness is not only technology. It is the ability to translate insight into consistent food systems at scale, with quality that earns confidence before a product ever reaches the table.</p>
-        </Reveal>
+      
+      <div className="relative mx-auto max-w-7xl">
+        <div className="grid gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+          <Reveal>
+            <p className="text-sm font-bold uppercase tracking-[0.32em] text-royal">Future innovation</p>
+            <h2 className="mt-7 font-display text-6xl leading-[1.12] text-navy md:text-8xl">
+              <span className="block bg-gradient-to-r from-royal via-copper to-royal bg-clip-text text-transparent pb-2">The next era of Indian</span>
+              <span className="block text-navy pb-1.5">food needs capable partners.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="text-xl leading-9 text-ink/66">Future readiness is not only technology. It is the ability to translate insight into consistent food systems at scale, with quality that earns confidence before a product ever reaches the table.</p>
+          </Reveal>
+        </div>
+
+        {/* Future Grid displaying innovations */}
+        <div className="future-grid relative mt-20 grid gap-6 sm:grid-cols-3">
+          {innovations.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.8, delay: idx * 0.12, ease: "easeOut" }}
+                className="future-card group rounded-2xl border border-ink/10 bg-cream/30 p-8 shadow-cinematic transition-all duration-300 hover:border-royal/30 hover:bg-cream hover:shadow-glow-royal"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-royal/10 text-royal transition duration-300 group-hover:scale-110"><Icon className="h-6 w-6" /></div>
+                <h3 className="mt-6 font-display text-2xl text-navy transition duration-300 group-hover:text-gold">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-ink/60">{item.copy}</p>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
@@ -661,9 +924,9 @@ function Partnerships() {
       <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_0.8fr] lg:items-center">
         <Reveal>
           <p className="text-sm font-bold uppercase tracking-[0.32em] text-copper">Partnerships & credibility</p>
-          <h2 className="mt-7 font-display text-6xl leading-[0.98] text-navy md:text-8xl">
-            <span className="block bg-gradient-to-r from-copper via-gold to-copper bg-clip-text text-transparent">A dependable backbone</span>
-            <span className="block text-navy">for institutions & food brands.</span>
+          <h2 className="mt-7 font-display text-6xl leading-[1.12] text-navy md:text-8xl">
+            <span className="block bg-gradient-to-r from-copper via-gold to-copper bg-clip-text text-transparent pb-2">A dependable backbone</span>
+            <span className="block text-navy pb-1.5">for institutions & food brands.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.12}>
@@ -693,11 +956,45 @@ function EmotionalEnding() {
       <div className="relative mx-auto flex min-h-[72vh] max-w-7xl flex-col justify-end">
         <Reveal>
           <p className="text-sm font-bold uppercase tracking-[0.32em] text-gold">A promise kept every day</p>
-          <h2 className="mt-8 max-w-6xl font-display text-6xl leading-[0.98] md:text-8xl">
-            <span className="block bg-gradient-to-r from-gold via-ivory to-gold bg-clip-text text-transparent">Behind Every Trusted Food Experience</span>
-            <span className="block text-ivory">Is a Promise Kept Every Day.</span>
+          <h2 className="mt-8 max-w-6xl font-display text-6xl leading-[1.12] md:text-8xl">
+            <span className="block bg-gradient-to-r from-gold via-ivory to-gold bg-clip-text text-transparent pb-2">Behind Every Trusted Food Experience</span>
+            <span className="block text-ivory pb-1.5">Is a Promise Kept Every Day.</span>
           </h2>
         </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function BusinessAtAGlance() {
+  return (
+    <section className="relative overflow-hidden bg-[#0a1424] px-5 py-24 text-ivory md:px-8 md:py-32">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(200,168,90,0.14),transparent_50%)]" />
+      <div className="relative mx-auto max-w-7xl">
+        <Reveal>
+          <p className="text-sm font-bold uppercase tracking-[0.32em] text-gold">Summary</p>
+          <h2 className="mt-4 font-display text-5xl leading-[1.12] md:text-7xl">
+            <span className="block bg-gradient-to-r from-gold via-ivory to-gold bg-clip-text text-transparent pb-2">Business at a Glance</span>
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {businessGlance.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, delay: idx * 0.08, ease: "easeOut" }}
+              className="glance-card group relative rounded-2xl border border-ivory/10 bg-navy/60 p-6 backdrop-blur transition-all duration-300 hover:border-gold/30 hover:bg-navy/80 hover:shadow-cinematic"
+            >
+              <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gold/5 blur-xl transition duration-500 group-hover:scale-125" />
+              <p className="text-xs uppercase tracking-wider text-ivory/40">{item.dimension}</p>
+              <p className="mt-4 font-display text-2xl text-ivory group-hover:text-gold transition-colors duration-300">{item.detail}</p>
+              <div className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-gradient-to-r from-gold to-transparent transition-transform duration-500 group-hover:scale-x-100" />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -712,7 +1009,7 @@ function PremiumFooter() {
       <div className="relative mx-auto max-w-7xl">
         <div className="grid gap-10 border-b border-ivory/10 pb-12 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <motion.div whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 200 }}>
-            <p className="font-display text-5xl bg-gradient-to-r from-gold to-ivory bg-clip-text text-transparent">Amrit Food</p>
+            <p className="font-display text-5xl bg-gradient-to-r from-gold to-ivory bg-clip-text text-transparent pb-1.5">Amrit Food</p>
             <p className="mt-6 max-w-xl text-lg leading-8 text-ivory/64">Amrit Food continues to shape India&apos;s food journey through trust, innovation, and a commitment to quality that generations have relied upon.</p>
           </motion.div>
           <div>
@@ -760,7 +1057,7 @@ function PremiumFooter() {
               aria-label="FabulousMedia"
             >
               <img
-                src="/fabulousmedia.webp"
+                src="/fabulous-logo.png"
                 alt="FabulousMedia"
                 className="h-3 w-auto"
               />
@@ -774,7 +1071,7 @@ function PremiumFooter() {
               aria-label="GoCommercially"
             >
               <img
-                src="/gocommercially.webp"
+                src="/go_tm logo white.png"
                 alt="GoCommercially"
                 className="h-3 w-auto"
               />
