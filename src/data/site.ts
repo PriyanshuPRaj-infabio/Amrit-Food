@@ -156,3 +156,110 @@ export const innovations = [
   { icon: HeartHandshake, title: "Partner-led development", copy: "Custom solutions shaped around scale, use case, and brand ambition." },
   { icon: FlaskConical, title: "Smarter quality intelligence", copy: "Process discipline designed for higher confidence and cleaner growth." }
 ];
+
+export const legacyMilestones = [
+  {
+    year: "1940",
+    era: "Founding Era",
+    title: "Amrit Banaspati Company Ltd. is established",
+    description: "Founded on 29 March 1940 by Late Shri Laxmi Narayan Bajaj in Ghaziabad, Uttar Pradesh. Incorporated as the 9th company in India's nascent vanaspati industry. Listed on the Bombay and Kanpur stock exchanges. The group begins its journey as one of North India's earliest edible oils enterprises.",
+    keyFact: "Incorporated 29 Mar 1940 · ROC Kanpur",
+    dotSize: "major",
+    image: "/legacy/1767177219819.jpeg"
+  },
+  {
+    year: "1940s–60s",
+    era: "Founding Era",
+    title: "Edible oils & vanaspati operations take root",
+    description: "Amrit Banaspati builds its core vanaspati ghee manufacturing operations. Vanaspati offered an affordable alternative to desi ghee for India's growing middle class. The group positions itself as one of North India's leading edible oil producers across two decades of post-independence expansion.",
+    keyFact: "North India's largest edible oil producers",
+    dotSize: "minor",
+    image: "/legacy/1771948821354.jpeg"
+  },
+  {
+    year: "1969",
+    era: "Growth & Expansion",
+    title: "Gagan® Vanaspati launched — an icon is born",
+    description: "The Gagan® brand launches in early 1969, when North Indian markets were dominated by mustard oils. Pioneering a granule-based, ghee-like vanaspati with superior texture and affordability, Gagan® wins rapid household adoption across North India. The Rajpura, Punjab manufacturing plant starts with an initial capacity of 100 MT/day, eventually scaling to 450 MT/day. Gagan® later wins the prestigious Rome Monde Selection Gold Medal.",
+    keyFact: "Rome Monde Selection Gold Medal · 100 MT/day plant",
+    dotSize: "major",
+    image: "/legacy/gagan-vanaspati-ghee-1000x1000.webp"
+  },
+  {
+    year: "1970s–80s",
+    era: "Diversification",
+    title: "Writing & printing paper business added",
+    description: "Amrit Corp diversifies beyond edible oils into writing and printing paper manufacturing, establishing itself as a genuine multi-sector conglomerate. This vertical becomes a key long-term revenue pillar until its eventual demerger into ABC Paper Ltd. in 2007.",
+    keyFact: "Writing & print paper · Multi-sector conglomerate",
+    dotSize: "minor",
+    image: "/legacy/ow8eurgs_large.webp"
+  },
+  {
+    year: "1991",
+    era: "Growth & Expansion",
+    title: "Amrit Food division established",
+    description: "Amrit Food is set up as a division of Amrit Corp in 1991, based in Ghaziabad, UP. Focused on UHT-processed dairy milk, flavoured milk, whipping cream, liquid ice cream mix, dessert mixes and value-added milk products. Becomes one of India's leading dairy producers and a trusted supplier to McDonald's, Starbucks, Haldiram's, Bikanerwala, and Burger King.",
+    keyFact: "Established 1991 · UHT dairy pioneer",
+    dotSize: "major",
+    image: "/legacy/packshots-showcase.png"
+  },
+  {
+    year: "1992",
+    era: "Growth & Expansion",
+    title: "Uncle Chipps launched — pioneering India's branded snack market",
+    description: "Amrit Agro Ltd., an Amrit Group entity, launches Uncle Chipps — one of India's first branded potato chip products. A pioneer of nitrogen-foil sealed packaging for freshness preservation. Manufactured in Silvassa with locally grown potatoes. The iconic jingle \"Bole mere lips, I love Uncle Chipps\" by Shantanu Moitra becomes a pop-culture landmark. By 1998, Uncle Chipps commands a 71% market share in India's organised snack segment.",
+    keyFact: "71% market share by 1998 · Nitrogen-foil pioneer",
+    dotSize: "major",
+    image: "/legacy/uncle-chipps-768x768.jpg"
+  },
+  {
+    year: "2000",
+    era: "Modern Era",
+    title: "Uncle Chipps sold to PepsiCo Frito-Lay for $16.6 million",
+    description: "In October 2000, Frito-Lay (PepsiCo's snack division) acquires Uncle Chipps from Amrit Agro Ltd. for approximately $16.6 million — one of the landmark FMCG brand acquisitions of the era. Competition from Lay's had reduced Uncle Chipps' share to 30–35% by 2000. Amrit Agro fully exits the snacks business in December 2002.",
+    keyFact: "$16.6M acquisition · PepsiCo / Frito-Lay",
+    dotSize: "major"
+  },
+  {
+    year: "2007",
+    era: "Restructuring",
+    title: "Group-wide restructuring scheme comes into force",
+    description: "A comprehensive Restructuring Scheme, sanctioned by shareholders, creditors and the High Courts of Allahabad, Delhi and Chandigarh, comes into force on 23 June 2007. The paper business is demerged into a new entity, ABC Paper Ltd. The edible oils and FMCG commodities business is demerged and consolidated with Amrit Enterprises Ltd., renamed Amrit Banaspati Company Ltd. Amrit Corp retains dairy, real estate and services — and ownership of the Gagan® brand IP.",
+    keyFact: "ABC Paper Ltd. · Amrit Banaspati FMCG demerger",
+    dotSize: "major"
+  },
+  {
+    year: "2010",
+    era: "Restructuring",
+    title: "Promoter shareholding restructured across group companies",
+    description: "Amrit Corp undertakes a formal restructuring of promoter shareholding across group companies as part of its long-term growth strategy and governance enhancement following the 2007 scheme.",
+    keyFact: "Promoter realignment · Group governance",
+    dotSize: "minor"
+  },
+  {
+    year: "2010s",
+    era: "Modern Era",
+    title: "Amrit Food scales — Just Milk brand launched, QSR partnerships grow",
+    description: "Amrit Food grows its UHT dairy business significantly, launching the Just Milk brand for retail consumers across Delhi-NCR. Becomes the dairy partner of choice for India's largest QSR and hospitality chains: McDonald's, Starbucks, Haldiram's, Bikanerwala, and Burger King. Product range expands to include flavoured milk, whipping cream, liquid ice cream mix, coffee creamers and dessert mixes.",
+    keyFact: "Just Milk brand · 5 major QSR partners",
+    dotSize: "minor",
+    image: "/legacy/just-milk-uht-double-toned-milk-1000x1000.png"
+  },
+  {
+    year: "2012",
+    era: "Modern Era",
+    title: "Bunge acquires Amrit Banaspati's edible oils business + Gagan® rights",
+    description: "In February 2012, Bunge India Private Limited (a subsidiary of NYSE-listed Bunge Limited) completes the acquisition of Amrit Banaspati Company Ltd.'s edible oils and fats business — including the Rajpura, Punjab manufacturing plant and brands AMRIT, BANSARI, GINNI, MERRIGOLD, and SUNEHRI TEER. Bunge India also acquires the rights to the Gagan® vanaspati brand from Amrit Corp. Bunge's existing India brands include DALDA, MASTERLINE and CHAMBAL.",
+    keyFact: "Bunge NYSE:BG · Gagan® brand acquired",
+    dotSize: "major",
+    image: "/legacy/1-litre-gagan-vanaspati-ghee-1000x1000.webp"
+  },
+  {
+    year: "2025",
+    era: "Present",
+    title: "85 years on — active, listed, ₹148 Cr revenue",
+    description: "Amrit Corp Ltd. holds its 84th Annual General Meeting in July 2025. Revenue for FY 2024–25 stands at ₹148 Crore. The group operates across three pillars: Amrit Food (UHT dairy), Gagan Enclave integrated township (real estate, Lal Kuan, Ghaziabad), and corporate advisory/BPO services to group companies. Leadership: Ashwini Kumar Bajaj (Managing Director), Vikram Kumar Bajaj (Director). The Gagan® brand IP and group corporate logo remain held by Amrit Corp. Registered on BSE: 507525.",
+    keyFact: "₹148 Cr FY25 · BSE: 507525 · 84th AGM",
+    dotSize: "major"
+  }
+];

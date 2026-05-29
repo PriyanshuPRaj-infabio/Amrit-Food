@@ -9,7 +9,7 @@ import { ChevronDown, Factory, Mail, MapPin, Phone, ShieldCheck, Award, Heart, S
 import { MotionProvider } from "@/components/motion-provider";
 import { MagneticButton } from "@/components/magnetic-button";
 import { Reveal } from "@/components/reveal";
-import { impact, innovations, navItems, process, coolMProducts, justProducts, uhtProducts, coreValues, justPillars, institutionalClients, businessGlance, stats } from "@/data/site";
+import { impact, innovations, navItems, process, coolMProducts, justProducts, uhtProducts, coreValues, justPillars, institutionalClients, businessGlance, stats, legacyMilestones } from "@/data/site";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -223,6 +223,154 @@ function BrandPhilosophy() {
   );
 }
 
+function VerticalLegacyTimeline() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end end"]
+  });
+
+  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  useEffect(() => {
+    let animationFrameId: number;
+    const checkCenter = () => {
+      if (containerRef.current) {
+        const viewportCenter = window.innerHeight / 2;
+        const items = containerRef.current.querySelectorAll('.timeline-row');
+        let closestIndex = -1;
+        let minDistance = Infinity;
+
+        items.forEach((item, idx) => {
+          const rect = item.getBoundingClientRect();
+          // Target point is roughly 150px down from the top of the row to match the card's visual center
+          const itemTarget = rect.top + 150; 
+          const distance = Math.abs(viewportCenter - itemTarget);
+          
+          if (distance < minDistance && distance < window.innerHeight * 0.45) {
+            minDistance = distance;
+            closestIndex = idx;
+          }
+        });
+
+        if (activeIndex !== closestIndex) {
+          setActiveIndex(closestIndex);
+        }
+      }
+      animationFrameId = requestAnimationFrame(checkCenter);
+    };
+    
+    checkCenter();
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [activeIndex]);
+
+  return (
+    <div className="bg-[#08111f] text-ivory py-32 px-5 md:px-8 relative w-full" ref={containerRef}>
+      <div className="max-w-[1100px] mx-auto mb-24">
+        <p className="text-sm font-bold uppercase tracking-[0.32em] text-gold mb-6">Since 1940</p>
+        <h2 className="font-display text-5xl md:text-7xl mb-8">Our Legacy</h2>
+        <div className="h-[2px] w-32 bg-gold mb-8"></div>
+        <p className="max-w-3xl text-[17px] leading-relaxed text-ivory/70">
+          Eight decades of building India&apos;s most trusted food brands — from the kitchens of North India to the tables of the world.
+        </p>
+      </div>
+
+      <div className="max-w-[1100px] mx-auto relative flex flex-col gap-16 md:gap-0">
+        {/* Spine */}
+        <div className="hidden md:block absolute left-[50%] top-0 bottom-0 w-[2px] bg-ivory/10 translate-x-[-1px]" />
+        <motion.div 
+          style={{ scaleY, transformOrigin: "top" }}
+          className="hidden md:block absolute left-[50%] top-0 bottom-0 w-[2px] bg-gold translate-x-[-1px] z-10" 
+        />
+
+        {legacyMilestones.map((milestone, idx) => {
+          const isEven = idx % 2 === 0;
+          const isActive = activeIndex === idx;
+          
+          return (
+            <div key={idx} className="timeline-row relative flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-0 md:min-h-[40vh]">
+              
+              {/* Center Dot */}
+              <motion.div 
+                initial={{ scale: 0.4, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true, margin: "-20%" }}
+                transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
+                className={`hidden md:flex absolute left-[50%] top-[4.5rem] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full z-20 transition-all duration-700 ease-out ${milestone.dotSize === 'major' ? 'w-[22px] h-[22px]' : 'w-[16px] h-[16px]'} ${isActive ? 'bg-gold scale-[1.3] shadow-[0_0_20px_rgba(200,168,90,0.6)]' : 'bg-gold/30'}`}
+              >
+                {milestone.dotSize === 'major' && <div className="absolute inset-0 rounded-full bg-gold opacity-30 scale-[1.6]" />}
+              </motion.div>
+
+              {/* Year Column */}
+              <div className={`relative z-20 md:px-20 ${isEven ? 'md:text-right' : 'md:text-left md:order-2'}`}>
+                <div className={`md:sticky md:top-[40vh] flex flex-col pt-2 md:pt-14 transition-all duration-700 ease-out ${isEven ? 'md:items-end' : 'md:items-start'} ${isActive ? 'scale-110 opacity-100' : 'scale-95 opacity-40'}`}>
+                  <span className={`text-4xl md:text-5xl font-display mb-2 transition-colors duration-700 ${isActive ? 'text-gold drop-shadow-[0_0_15px_rgba(200,168,90,0.4)]' : 'text-gold/50'}`}>{milestone.year}</span>
+                  <span className={`text-xs uppercase tracking-[0.2em] font-bold transition-colors duration-700 ${isActive ? 'text-ivory' : 'text-ivory/50'}`}>{milestone.era}</span>
+                </div>
+              </div>
+
+              {/* Card Column */}
+              <div className={`relative z-20 md:px-16 md:pb-32 ${isEven ? '' : 'md:order-1'}`}>
+                <motion.article 
+                  initial={{ opacity: 0, x: isEven ? 40 : -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-20%" }}
+                  transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1] }}
+                  className={`group relative rounded-2xl p-8 transition-all duration-700 hover:border-gold/40 hover:bg-ivory/[0.05] ${isActive ? 'scale-105 border-gold/40 bg-ivory/[0.08] shadow-2xl opacity-100 z-30' : 'scale-95 border-ivory/10 bg-ivory/[0.03] opacity-60 grayscale-[0.4] z-10'}`}
+                >
+                  <div className={`absolute top-0 bottom-0 w-1 bg-gold transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} ${isEven ? 'left-0 rounded-l-2xl' : 'right-0 rounded-r-2xl'}`} />
+                  
+                  <div className={`flex ${isEven ? 'justify-start' : 'md:justify-end justify-start'} mb-6`}>
+                    <div className="inline-block px-3 py-1 rounded-full bg-gold/15 text-gold text-[11px] font-bold uppercase tracking-wider">
+                      {milestone.era}
+                    </div>
+                  </div>
+                  
+                  <h3 className={`text-[20px] font-display mb-4 text-ivory font-medium ${isEven ? 'text-left' : 'md:text-right text-left'}`}>{milestone.title}</h3>
+                  
+                  {milestone.image && (
+                    <div className={`relative w-full aspect-[16/7] md:aspect-[21/9] mb-6 overflow-hidden rounded-xl border border-ivory/10 transition-all duration-700 shadow-xl ${isActive ? 'border-gold/30' : ''}`}>
+                      <Image src={milestone.image} alt={milestone.title} fill className={`object-cover transition-all duration-700 ease-out ${isActive ? 'grayscale-0 scale-100' : 'grayscale scale-105 group-hover:grayscale-0 group-hover:scale-100'}`} sizes="(max-width: 768px) 100vw, 50vw" />
+                      <div className={`absolute inset-0 bg-navy/40 mix-blend-multiply transition-opacity duration-700 ${isActive ? 'opacity-0' : 'opacity-100 group-hover:opacity-0'}`} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#08111f]/60 to-transparent opacity-80" />
+                    </div>
+                  )}
+                  
+                  <p className={`text-[15px] leading-[1.7] text-ivory/60 mb-8 ${isEven ? 'text-left' : 'md:text-right text-left'}`}>
+                    {milestone.description}
+                  </p>
+                  
+                  <div className={`flex ${isEven ? 'justify-start' : 'md:justify-end justify-start'}`}>
+                    <div className="inline-block px-3 py-1.5 border border-ivory/20 rounded-md text-xs text-gold font-medium">
+                      {milestone.keyFact}
+                    </div>
+                  </div>
+                </motion.article>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="max-w-[1100px] mx-auto mt-32 border-t border-ivory/15 pt-16 text-center">
+        <h3 className="font-display text-4xl mb-12">85+ years <span className="text-gold mx-2">·</span> 12 milestones <span className="text-gold mx-2">·</span> 3 iconic brands built</h3>
+        
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          <div className="px-6 py-3 rounded-full bg-ivory/[0.04] border border-ivory/10 text-sm font-medium">Founded 1940</div>
+          <div className="px-6 py-3 rounded-full bg-ivory/[0.04] border border-ivory/10 text-sm font-medium">Uncle Chipps — sold $16.6M</div>
+          <div className="px-6 py-3 rounded-full bg-ivory/[0.04] border border-ivory/10 text-sm font-medium">₹148 Cr revenue FY25</div>
+        </div>
+
+        <MagneticButton href="#products" variant="gold" className="mx-auto">
+          Explore Amrit Food Today
+        </MagneticButton>
+      </div>
+    </div>
+  );
+}
+
 const legacyScenes = [
   {
     eyebrow: "Foundations of Trust",
@@ -335,6 +483,8 @@ function LegacyStory() {
           ))}
         </h2>
       </div>
+
+      <VerticalLegacyTimeline />
 
       <div className="relative">
         {legacyScenes.map((scene, index) => {
@@ -600,24 +750,67 @@ function ProductEcosystem() {
 }
 
 function LogoMarquee() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    let animationFrameId: number;
+    const checkCenter = () => {
+      if (containerRef.current) {
+        const containerRect = containerRef.current.getBoundingClientRect();
+        const containerCenter = containerRect.left + containerRect.width / 2;
+        
+        const items = containerRef.current.querySelectorAll('.client-logo-item');
+        let closestIndex = -1;
+        let minDistance = Infinity;
+
+        items.forEach((item, idx) => {
+          const rect = item.getBoundingClientRect();
+          const itemCenter = rect.left + rect.width / 2;
+          const distance = Math.abs(containerCenter - itemCenter);
+          // Distance threshold to trigger the "pop out" effect
+          if (distance < minDistance && distance < 260) {
+            minDistance = distance;
+            closestIndex = idx;
+          }
+        });
+
+        if (activeIndex !== closestIndex) {
+          setActiveIndex(closestIndex);
+        }
+      }
+      animationFrameId = requestAnimationFrame(checkCenter);
+    };
+    
+    checkCenter();
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [activeIndex]);
+
   return (
-    <div className="mt-20 border-t border-ink/10 pt-16">
-      <p className="text-center text-xs font-bold uppercase tracking-[0.28em] text-copper mb-10">Trusted by Key B2B Institutional Clients</p>
-      <div className="relative w-full overflow-hidden bg-cream/40 py-8 border-y border-ink/5">
-        <div className="flex animate-marquee gap-16 items-center">
+    <div className="mt-24 border-t border-ink/10 pt-20">
+      <p className="text-center text-sm font-bold uppercase tracking-[0.28em] text-copper mb-12">Trusted by Key B2B Institutional Clients</p>
+      <div className="relative w-full overflow-hidden bg-cream/50 py-12 border-y border-ink/5 shadow-[inset_0_0_80px_rgba(200,168,90,0.03)]" ref={containerRef}>
+        <div className="flex animate-marquee gap-24 items-center">
           {institutionalClients.map((client, idx) => (
-            <div key={idx} className="flex shrink-0 items-center justify-center gap-4 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <img src={client.logo} alt={client.name} className="h-9 w-auto object-contain max-w-[120px]" />
-              <span className="text-xs uppercase tracking-wider font-semibold text-navy/40">{client.name}</span>
+            <div 
+              key={idx} 
+              className={`client-logo-item flex shrink-0 items-center justify-center gap-5 transition-all duration-500 ease-out hover:grayscale-0 hover:opacity-100 hover:scale-[1.35] ${activeIndex === idx ? "scale-[1.35] grayscale-0 opacity-100 drop-shadow-xl" : "grayscale opacity-40 scale-95"}`}
+            >
+              <img src={client.logo} alt={client.name} className="h-14 md:h-16 w-auto object-contain max-w-[180px]" />
             </div>
           ))}
           {/* Duplicate for infinite loop */}
-          {institutionalClients.map((client, idx) => (
-            <div key={`dup-${idx}`} className="flex shrink-0 items-center justify-center gap-4 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <img src={client.logo} alt={client.name} className="h-9 w-auto object-contain max-w-[120px]" />
-              <span className="text-xs uppercase tracking-wider font-semibold text-navy/40">{client.name}</span>
-            </div>
-          ))}
+          {institutionalClients.map((client, idx) => {
+            const globalIdx = idx + institutionalClients.length;
+            return (
+              <div 
+                key={`dup-${idx}`} 
+                className={`client-logo-item flex shrink-0 items-center justify-center gap-5 transition-all duration-500 ease-out hover:grayscale-0 hover:opacity-100 hover:scale-[1.35] ${activeIndex === globalIdx ? "scale-[1.35] grayscale-0 opacity-100 drop-shadow-xl" : "grayscale opacity-40 scale-95"}`}
+              >
+                <img src={client.logo} alt={client.name} className="h-14 md:h-16 w-auto object-contain max-w-[180px]" />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
